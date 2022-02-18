@@ -1,0 +1,6 @@
+{
+  "targetFramework": "v5.0",
+  "packageName": "Model",
+  "modelPackage": "WeathersInfo.Com",
+  "optionalProjectFile": false
+}

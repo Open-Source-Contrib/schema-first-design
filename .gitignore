@@ -1,5 +1,7 @@
 /.vs
 **/.outputs
+**/.codegen
+**/generated_models
 # Created by https://www.gitignore.io/api/csharp,vscode
 # Edit at https://www.gitignore.io/?templates=csharp,vscode
 

@@ -14,11 +14,122 @@ servers:
 
 paths:
   /cities:
-    $ref: './cities/getByCityName.yaml'
+    get:
+      summary: weather information for a specific city.
+      operationId: getByCityName
+      tags:
+        - cities
+      parameters:
+        - in: path
+          name: cityName
+          description: Name of the city
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/WeatherInfo'
+              example:
+                id: 10
+                cityName: New York
+                lowTemp: 12.4
+                highTemp: 16.7
+                windSpeed: 62.4
+                windDirection: SW
+                atmoshphere: sunny
+        '400':
+          description: Expected when a bad request is made with incorrect search parameters
+        '404':
+          description: Expected when a city is not found in our data
   /geos:
-    $ref: './geos/getByLatLong.yaml'
+    get:
+      summary: weather information for a lat long pair.
+      operationId: getByLatLong
+      tags:
+        - geos
+      parameters:
+        - name: lat
+          in: query
+          description: Latitude of the place
+          required: true
+          schema:
+            type: number
+            format: float
+        - name: long
+          in: query
+          description: Longitude of the place
+          required: true
+          schema:
+            type: number
+            format: float
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/WeatherInfo'
+              example:
+                id: 10
+                cityName: New York
+                lowTemp: 12.4
+                highTemp: 16.7
+                windSpeed: 62.4
+                windDirection: SW
+                atmoshphere: sunny
+        '400':
+          description: Expected when a bad request is made with incorrect search parameters
+        '404':
+          description: Expected when a city is not found in our data
 
 components:
   schemas:
     WeatherInfo:
-      $ref: './shared/weatherinfo.yaml'
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        cityName:
+          type: string
+          example: Paris
+        lowTemp:
+          type: number
+          example: 16.5
+        highTemp:
+          type: number
+          example: 23.9
+        windSpeed:
+          type: number
+          nullable: true
+          example: 65.2
+        windDirection:
+          type: string
+          nullable: true
+          example: NW
+          enum:
+            - N
+            - NE
+            - NW
+            - S
+            - SE
+            - SW
+            - E
+            - W
+        atmoshphere:
+          type: string
+          nullable: true
+          enum:
+            - sunny
+            - cloudy
+            - overcast
+            - rain
+            - hailstorm
+            - thunderstorm
+            - drizzle
+            - windy

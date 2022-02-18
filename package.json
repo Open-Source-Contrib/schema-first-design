@@ -12,6 +12,10 @@
   },
   "scripts": {
     "validate-schema": "node node_modules/swagger-cli/swagger-cli.js validate ./specs/openapi.yaml",
-    "bundle-schema": "node node_modules/swagger-cli/swagger-cli.js bundle ./specs/openapi.yaml --outfile ./specs/.outputs/openapi.yaml --type yaml"
+    "bundle-schema": "node node_modules/swagger-cli/swagger-cli.js validate ./specs/openapi.yaml && node node_modules/swagger-cli/swagger-cli.js bundle ./specs/openapi.yaml --outfile ./specs/.outputs/openapi.yaml --type yaml",
+    "generate-models": "cd ./specs && java -Dmodels -DmodelDocs=false -DmodelTests=false -Dapis=false -DapiTests=false -jar ../node_modules/swagger-nodegen-cli/bin/swagger-codegen-cli-3.0.24.jar generate -i openapi.yaml -l csharp -o ../src/Model.WeathersInfo.Com -c csharp-output-config.json && cd .. && mv src/Model.WeathersInfo.Com/src/Model/WeathersInfo.Com/*.* src/Model.WeathersInfo.Com/generated_models && rm -rf src/Model.WeathersInfo.Com/src"
+  },
+  "devDependencies": {
+    "swagger-nodegen-cli": "^3.0.24"
   }
 }
