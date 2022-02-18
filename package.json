@@ -1,0 +1,17 @@
+{
+  "name": "schema-first-design",
+  "version": "1.0.0",
+  "description": "a POC for schema first design workshop",
+  "main": "index.js",
+  "repository": "https://github.com/Open-Source-Contrib/schema-first-design.git",
+  "author": "Pradeep Singh <pradeep.singh@talabat.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "swagger-cli": "^4.0.4"
+  },
+  "scripts": {
+    "validate-schema": "node node_modules/swagger-cli/swagger-cli.js validate ./specs/openapi.yaml",
+    "bundle-schema": "node node_modules/swagger-cli/swagger-cli.js bundle ./specs/openapi.yaml --outfile ./specs/.outputs/openapi.yaml --type yaml"
+  }
+}

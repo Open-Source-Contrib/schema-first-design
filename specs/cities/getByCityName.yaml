@@ -1,0 +1,31 @@
+get:
+  summary: weather information for a specific city.
+  operationId: getByCityName
+  tags:
+    - cities
+  parameters:
+    - in: path
+      name: cityName
+      description: Name of the city
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/WeatherInfo'
+          example:
+            id: 10
+            cityName: New York
+            lowTemp: 12.4
+            highTemp: 16.7
+            windSpeed: 62.4
+            windDirection: SW
+            atmoshphere: sunny
+    '400':
+      description: Expected when a bad request is made with incorrect search parameters
+    '404':
+      description: Expected when a city is not found in our data
