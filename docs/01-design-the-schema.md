@@ -17,16 +17,4 @@ Here are the requirement for our systems.
 
 ## Design
 
-Based on the above information we can design our API specs in the top level API spec file in OpenAPI V3 format in file [openapi.yaml](../specs/openapi.yaml). We have also organized the schemas into route specific files and shared files. Here is a description of each.
-
-### Shared
-
-1. ```weatherinfo.yaml```: This file defines the response object when fetching weather info. Because internally we would be translating the lat/long query to the nearest city this model is shared as response by both ```getByLatLong``` and ```getByCityName``` operations.
-
-### Cities
-
-1. ```getByCityName.yaml```: This file defines the API schema for ```GET /v1/cities/{cityName}``` endpoint.
-
-### Geos
-
-1. ```getByLatLong.yaml```: This file defines the API schema for ```GET /v1/geos/lat={lat}&long={long}``` endpoint.
+Based on the above information we can design our API specs in the top level API spec file in OpenAPI V3 format in file [openapi.yaml](../specs/openapi.yaml). This file defines the API operations, models and responses. It is possible to split this file into individual files per operation/route but that is beyond the scope of this workshop.
