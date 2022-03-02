@@ -13,7 +13,7 @@ servers:
     description: Local server for development
 
 paths:
-  /cities:
+  /cities/{cityName}:
     get:
       summary: weather information for a specific city.
       operationId: getByCityName
