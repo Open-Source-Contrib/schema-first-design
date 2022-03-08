@@ -58,14 +58,12 @@ paths:
           required: true
           schema:
             type: number
-            format: float
         - name: long
           in: query
           description: Longitude of the place
           required: true
           schema:
             type: number
-            format: float
       responses:
         '200':
           description: Expected response to a valid request
