@@ -5,12 +5,14 @@ info:
   version: 0.1.9
 
 servers:
-  - url: https://api.weathersinfo.com/v1
+  - url: https://api.weathersinfo.com
     description: Main (production) server
-  - url: https://staging-api.weathersinfo.com/v1
+  - url: https://staging-api.weathersinfo.com
     description: Internal staging server for testing
-  - url: https://localhost:5001/v1
+  - url: https://localhost:5001
     description: Local server for development
+  - url: http://localhost:8080
+    description: Mock server for schema tests development
 
 paths:
   /cities/{cityName}:
@@ -58,7 +60,7 @@ paths:
           required: true
           schema:
             type: number
-        - name: long
+        - name: lng
           in: query
           description: Longitude of the place
           required: true

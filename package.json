@@ -7,20 +7,23 @@
   "author": "Pradeep Singh <pradeep.singh@talabat.com>",
   "license": "MIT",
   "private": false,
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "scripts": {
     "validate-schema": "node node_modules/swagger-cli/swagger-cli.js validate ./specs/openapi.yaml",
     "bundle-schema": "node node_modules/swagger-cli/swagger-cli.js validate ./specs/openapi.yaml && node node_modules/swagger-cli/swagger-cli.js bundle ./specs/openapi.yaml --outfile ./specs/.outputs/openapi.yaml --type yaml",
     "generate-models": "cd ./specs && java -Dmodels -DmodelDocs=false -DmodelTests=false -Dapis=false -DapiTests=false -jar ../node_modules/swagger-nodegen-cli/bin/swagger-codegen-cli-3.0.24.jar generate -i openapi.yaml -l csharp -o ../src/Model.WeathersInfo.Com -c csharp-output-config.json && cd .. && mv src/Model.WeathersInfo.Com/src/Model/WeathersInfo.Com/*.* src/Model.WeathersInfo.Com/generated_models && rm -rf src/Model.WeathersInfo.Com/src",
-    "start-mock-server": "yarn bundle-schema && cd ./specs && docker-compose up",
-    "start-val-proxy": "",
-    "test-contract": "",
-    "generate-client": ""
+    "start-mock-server": "yarn bundle-schema && cd ./specs && docker-compose up -d",
+    "start-val-proxy": "yarn bundle-schema && yarn prism proxy ./specs/.outputs/openapi.yaml http://localhost:5057 --errors",
+    "test-contract-mock": "yarn start-mock-server && sleep 10s && yarn newman run ./test/contract/weather-api.postman_collection.json -e ./test/contract/weather-api-local.postman_environment.json && cd ./specs && docker-compose down",
+    "test-contract-dev": "yarn newman run ./test/contract/weather-api.postman_collection.json -e ./test/contract/weather-api-dev.postman_environment.json",
+    "start-app:mock": "cd src/weather-app && yarn start:mock && cd ../..",
+    "start-app:dev": "cd src/weather-app && yarn start:dev && cd ../..",
+    "start-api:dev": "cd src/Api.WeathersInfo.Com && dotnet watch run && cd ../.."
   },
   "devDependencies": {
-    "swagger-nodegen-cli": "^3.0.24",
-    "swagger-cli": "^4.0.4"
+    "@stoplight/prism-cli": "^4.8.0",
+    "newman": "^5.3.2",
+    "swagger-cli": "^4.0.4",
+    "swagger-nodegen-cli": "^3.0.24"
   }
 }

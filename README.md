@@ -18,34 +18,22 @@ Here are the list of technologies that we will be using for building this soluti
 |Api Schema         |OpenAPI V3                                                         |
 |Code Generator     |[SwaggerCodeGen](https://www.npmjs.com/package/swagger-codegen)    |
 |Mock Server        |[prism](https://github.com/stoplightio/prism)                      |
-|Validation Proxy   |[prism](https://github.com/stoplightio/prism)                      |
 |Schema Tests       |[postman](https://www.postman.com/)                                |
 |Front-end          |[reactjs](https://reactjs.org/)                                    |
 |Backend            |[.net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)   |
 
-So in this POC we will be showing the process end to end which will include the following steps.
-
-|S.No   |   Description     |           branch          |
-|------:|-------------------|---------------------------|
-|0      |Empty-Start Here   |```feature/empty-start```  |
-|1      |Design the schema  |```feature/schema```       |
-|2      |Code Generation    |```feature/code-gen```     |
-|3      |Mock Server        |```feature/mock-server```  |
-|4      |Schema Tests       |```feature/schema-tests``` |
-|5      |Front-end          |```feature/fe-impl```      |
-|6      |Backend            |```feature/be-impl```      |
-|7      |Validation Proxy   |```feature/val-proxy```    |
-
 ---
 ## Documentation
-For feature specific documents - please visit the below listed links.
+So in this POC we will be showing the process end to end which will include the following steps.
 
-|S.No   |   Description     |           branch                     |
-|------:|-------------------|--------------------------------------|
-|1      |Design the schema  |[doc](./docs/01-design-the-schema.md) |
-|2      |Code Generation    |[doc](./docs/02-code-generation.md)   |
-|3      |Mock Server        |[doc](./docs/03-mock-server.md)       |
-|4      |Schema Tests       |[doc](./docs/04-schema-tests.md)      |
-|5      |Front-end          |[doc](./docs/05-front-end.md)         |
-|6      |Backend            |[doc](./docs/06-backend.md)           |
-|7      |Validation Proxy   |[doc](./docs/07-validation-proxy.md)  |
+|S.No   |   Description     |
+|------:|-------------------|
+|1      |[Design the schema](./docs/01-design-the-schema.md)  |
+|2      |[Mock Server](./docs/02-mock-server.md)        |
+|3      |[Schema Tests](./docs/03-schema-tests.md)       |
+|4      |[Front-end](./docs/04-front-end.md)          |
+|5      |[Code Generation](./docs/05-code-generation.md)    |
+|6      |[Backend](./docs/06-backend.md)            |
+|7      |[Text Dev Backend](docs/07-test-dev-contract.md)   |
+
+
