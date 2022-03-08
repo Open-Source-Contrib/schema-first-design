@@ -13,6 +13,13 @@ Let's say we are building a weather system that can show the weather on a web pa
 
 Here are the list of technologies that we will be using for building this solution.
 
+## Some Clarifications
+
+1. This is not a demo of any specific product or technology (example swagger, prism, react).
+2. This is opinionated
+3. This not the only way of doing schema first design
+4. You don't have to use everything that is being shown here (pick and choose what you like.)
+
 |Component          | Tech                                                              |
 |:------------------|:-----------------------------------------------------------------:|
 |Api Schema         |OpenAPI V3                                                         |
